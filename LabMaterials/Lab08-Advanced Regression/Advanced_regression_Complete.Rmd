@@ -1,0 +1,68 @@
+---
+title: "Lab08_Advanced Regression"
+author: "YOUR NAME HERE"
+date: "X/XX/20XX"
+output: 
+  html_document:
+    toc: TRUE
+---
+#Load data and Packages
+```{r}
+setwd("/Users/israel/Desktop/Bio170Labs/Lab08-Advanced Regression")
+library (tidyverse)
+```
+
+#Multiple Regression
+```{r}
+
+```
+
+#Curvilinear relationships
+```{r}
+iron<-read.csv ("IronPhyto.csv")
+ggplot (iron, aes(x=ironConcentration, y=phytoGrowthRate)) +
+  stat_smooth(method="lm", se=F, aes (color="Linear")) +
+  stat_smooth(method="loess", se=F, aes(color="Loess")) +
+  stat_smooth(method = 'nls', formula = y ~ a * log(x) +b, 
+              aes(color = 'logarithmic'), se = FALSE, start = list(a=1,b=1)) + 
+   geom_point()
+
+lm1<- lm (phytoGrowthRate ~ ironConcentration, data=iron); summary (lm1)
+lm2<- lm (phytoGrowthRate ~ log(ironConcentration), data=iron); summary (lm2)
+```
+
+#GLM: Logistic regression
+```{r}
+guppy<-read.csv ("DeadGuppies.csv")
+guppy.summary<- guppy %>% group_by (exposureDurationMin) %>% 
+                summarize (mean.mortality= mean(mortality), 
+                           se.mortality= sd(mortality)/ sqrt(n()))
+
+ggplot (guppy.summary, aes(x=exposureDurationMin, y=mean.mortality)) + 
+  geom_point() +  geom_line() +
+  geom_errorbar(aes(ymin=mean.mortality-se.mortality, ymax=mean.mortality+se.mortality ), width=.1) + 
+  geom_point(data=guppy, aes(x=exposureDurationMin, y=mortality), position = position_jitter(width = 0.15, height = 0.01), alpha=0.15, color="red")
+
+glm1<- glm (mortality ~ exposureDurationMin, data=guppy, family="binomial")
+summary(glm1)
+```
+
+#Non-parametric correlations
+```{r}
+hippocampus<-read.csv ("hippocampus.csv")
+shapiro.test (hippocampus$memory)
+
+ggplot (hippocampus, aes(x=lesion, y=memory)) + geom_point() + stat_smooth()
+
+#linear model
+lm1<- lm (memory~ lesion, data=hippocampus)
+summary (lm1)
+
+#Spearman's rank correlation is more appropriate if you use the untransformed data 
+corr <- cor.test(x=hippocampus$lesion, y=hippocampus$memory, method ='spearman')
+corr
+
+corr2 <- cor.test(x=hippocampus$lesion, y=hippocampus$memory, method ='pearson')
+corr2
+
+```

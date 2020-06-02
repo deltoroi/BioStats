@@ -1,0 +1,94 @@
+---
+title: 'Lab06: ANOVA'
+author: "YOUR NAME HERE"
+date: "XX/XX/20XX"
+output: 
+  html_document:
+    toc: TRUE
+---
+# Your mission should you choose to accept it...
+
+Three years ago, late in April of 2017 a zombie outbreak hit North America! You are one of the few lucky survivors and have been tasked with a statistical study of the trends and patterns of the Zombie outbreak. You will use basic statistics and plots to help inform the management of this viral outbreak. The world is counting on your ability to synthesize the data from the most infected cities. Beware a type 1 error here could be deadly! 
+
+# Chunk 1: Load libraries and Dataset
+  A) load tidyverse
+  B) load the Zombie data set 
+  C) which variables a numeric? Which variables are categorical? 
+  D) What is the structure of the dataset? 
+```{r}
+#A) 
+
+#B) 
+
+#C) 
+
+#D) 
+
+```
+
+# Chunk 2: Check for normality in the response variables 
+  A) Use two different methids to graphically test for nomrality in the Mean_Temp and Mean_Precip variables grouped by Country. 
+  B) Do Mean_Temp and Mean_Precip appear to be normally distributed? Are any outliers detected? If so where? 
+  C) Mathematically test for normality in Percent_Infected and the Percen_Immune variables? Are these variables normally distributed? 
+  D) If Percent_Infected and the Percen_Immune variables are not normal, attempt a transformation and test whether the distribution has improved? 
+```{r}
+?geom_denisty
+?geom_qq
+? geom_boxplot
+?shapiro.test
+#A) 
+
+#B) 
+
+#C) 
+
+#D) 
+```
+
+
+# Chunk 3: Comparison of means: Graphically
+After years of compiling data, you can finally test if there are differences in infection rates across ethnic and age demographics. 
+  A)	Create a summary of means, st. error and 95% CI of the percent infected in of the different ethnic demographics? Create a summary of means, st. error and 90% CI of the percent infected in of the different ethnic demographics? 
+  B)	What are the null and alternative hypotheses being tested? What is your alpha level and why did you choose this value? 
+  C) Graphically display the summarized results as a point plot with error bars displaying the 95% CIs 
+  D) repeat the procedures in A-C for the four different age demographics.
+  
+```{r, echo=FALSE}
+?qnorm
+?sumarize
+?mutate
+?geom_point
+?geom_errorbar
+
+```
+  
+# Chunk 4: Comparison of means: Statistically 
+  A)	Statistically test if there are differences in the means of the ethnicity and age demographics and the percent infected? Explain the results in reference to the hypotheses being tested
+  B)	Use a post-hoc test to evaluate where significant differences exist? Explain your results 
+  C)	Graphically display the results of the tukey test.  
+  D)  Interpret your results in terms of statistical and biological hypotheses testing. 
+
+```{r}
+?aov
+?TukeyHSD
+#A) 
+
+#B) 
+
+#C) 
+
+
+#D) 
+```
+
+# Chunk 5: Non-parametric alternatives 
+You suspect that environmental conditions can influence the behavior of zombies. Unfortunately, the Mean_Temp variable is not easily transformed, and parametric tests cannot be used to evaluate differences in means. 
+  A)	What is H0 and HA being tested? 
+  B)	Use a non-parametric alternative test to evaluate if temperature affects zombie behavior. 
+  C)	Plot your results as a boxplot
+  D)	What do you suspect can be driving the pattern you observe? Use a biological explanation for this phenomenon.  
+
+```{r, echo=FALSE}
+?kruskal.test
+
+```

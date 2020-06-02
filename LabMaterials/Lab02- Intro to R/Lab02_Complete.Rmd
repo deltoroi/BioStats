@@ -1,0 +1,51 @@
+---
+title: "Lab 2- Intro to R Markdown and Data"
+author: "YOUR NAME HERE"
+date: "X/XX/20XX"
+output: 
+  html_document:
+    toc: TRUE
+---
+#Chunk 1: Load Libraries 
+```{r}
+?library
+library (ggplot2)
+library (datasets) #this function loads the package datasets 
+```
+
+#Chunk 2: Load Data
+```{r}
+?data
+data ("InsectSprays")
+```
+
+#Chunk 3: Data Exploring 
+```{r}
+?str
+?head
+?tail
+?summary
+str (InsectSprays)
+head (InsectSprays)
+tail (InsectSprays)
+summary (InsectSprays)
+```
+
+#Chunk 4: ggplot2
+```{r}
+?ggplot 
+?geom_boxplot
+ggplot (data=InsectSprays, aes (x=spray, y=count)) + 
+  geom_boxplot()
+#this is a boxplot showing median for each group and the interquantile ranges 
+```
+
+#Chunk 5: Iris and violin plot 
+```{r}
+?iris
+?geom_violin
+data (iris)
+ggplot (iris, aes(x=Species, y=Sepal.Length, fill=Species)) + geom_violin(alpha=0.5) + 
+  ylab ("Sepal Length (mm)")
+#This plot differs from the boxplot because it shows the distribution of the data 
+```

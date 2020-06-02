@@ -1,0 +1,59 @@
+---
+title: "Lab3_04_10_18"
+author: "YOUR NAME HERE!"
+date: "4/10/2018"
+output: word_document
+---
+###Chunk 1: Load libraries, data and set a working directory 
+```{r}
+#Setwd 
+
+#laod data 
+
+#load libraries 
+```
+
+###Chunk 2: Create a random distribution- binomial 
+```{r}
+?rbinom
+
+```
+
+###Chunk 3: Plot the binomial distribution in ggplot2 as a density plot 
+```{r}
+?geom_density
+
+```
+
+###Chunk 4: Create a normal distribution- Gaussian 
+```{r}
+?rnorm
+
+```
+
+###Chunk 5: Plot the gaussian distributions in ggplot2 as histograms 
+```{r}
+?geom_histogram
+
+```
+
+##Working with fitbit data: 
+###Chunk 6: Plot the distributions of height by gender as a density plot 
+```{r}
+```
+
+### Chunk 7:Plot the distributions of height by gender as a histogram 
+```{r}
+```
+### Chunk 8: select four more variables to plot by gender
+```{r}
+
+```
+###Chunk 9: Summarize the data for height: 
+```{r}
+?group_by
+?summarise
+
+```
+
+##Check your code and knit your file 

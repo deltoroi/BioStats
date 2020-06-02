@@ -1,0 +1,66 @@
+---
+title: "Lab3_04_10_18"
+author: "Del Toro"
+date: "4/10/2018"
+output: word_document
+---
+Load libraries, data and set a working directory 
+```{r}
+#Setwd 
+setwd("/Users/israel/Desktop/Bio170_Spring_18/Lab03")
+#laod data 
+df<-read.csv ("Fitbit_lab3.csv")
+#load libraries 
+library (ggplot2)
+library (dplyr)
+```
+
+Create a random distribution- binomial 
+```{r}
+Binom<-rbinom(size=4, n=100, .25)
+Binom<-as.data.frame (Binom)
+str (Binom)
+summary (Binom)
+
+Binom2<-rbinom(size=4, n=100, .75)
+Binom2<-as.data.frame (Binom2)
+str (Binom2)
+summary (Binom2)
+
+```
+
+Plot the binomial distribution in ggplot2 as a density plot
+```{r}
+ggplot (Binom, aes (Binom)) + geom_density() + xlim (0,4)
+ggplot (Binom2, aes (Binom2)) + geom_density()+ xlim (0,4)
+```
+
+Create a normal distribution- Gaussian 
+```{r}
+Normal1<- rnorm(n=100, mean = 170, sd = 5); Normal1<-as.data.frame(Normal1)
+Normal2<- rnorm(n=100, mean = 160, sd = 3); Normal2<-as.data.frame(Normal2)
+
+```
+
+Plot the gaussian distributions in ggplot2
+```{r}
+ggplot (Normal1, aes (Normal1)) + geom_histogram(bins=50) + xlim (150, 200)
+ggplot (Normal2, aes (Normal2)) + geom_histogram(bins=25)+ xlim (150, 200)
+```
+
+Working with fitbit data: 
+Plot the distributions of height by gender as a density plot 
+```{r}
+ggplot (df, aes (x=Height, color=Gender, fill=Gender))  + geom_density(alpha=0.5)
+```
+Plot the distributions of weight by gender as a histogram plot 
+```{r}
+ggplot (df, aes (Weight, color=Gender)) + geom_histogram(bins=10)
+```
+
+Chunk 9: Summarize the data for height
+```{r}
+df %>%
+  group_by(Gender) %>%
+  summarise(mean = mean(Height), n = n(), sd = sd(Height))
+```

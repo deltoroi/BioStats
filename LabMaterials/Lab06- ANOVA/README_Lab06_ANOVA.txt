@@ -1,0 +1,6 @@
+README_Lab06_ANOVA:
+This lab is centered around a dummy dataset titled “Zombie”. In our class this dataset is often used along the Halloween holiday, so students are enthusiastic about working with these data. We also model this data around a very rudimentary epidemiological dataset, showing different infection rates across different cities.  The goal here is to apply simple summarizing and visualization tools for the comparison of means across multiple groups. 
+
+In chunks 1 and 2 students load the dataset and check it for the statistical assumptions of normality. This presents an opportunity to work with data transformations of variables to meet the assumptions of normality. In chunk 3 students once again practice creating point plots with error bars and apply the aov () function in chunk 4 to test for differences in means. This presents students with output ANOVA tables that should be carefully explained in the lab. 
+
+Chunk 4 also explores the TukeyHSD test- a pairwise comparisons of groups to identify significant differences. We conclude this lab with a basic introduction to the non-parametric alternative test to the ANOVA, Kruskal Wallis. We ask that students present the comparisons as boxplots as this test is a evaluating the differences in medians of the groups, not the means. 

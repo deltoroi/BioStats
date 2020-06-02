@@ -1,0 +1,55 @@
+---
+title: "Lab 2- Intro to R Markdown and Data"
+author: "YOUR NAME HERE"
+date: "X/XX/20XX"
+output: 
+  html_document:
+    toc: TRUE
+---
+#Chunk 1: Load Libraries 
+  1.1) Load ggplot2 and datasets libraries
+  1.2) c.	Using a #; comment on two different arguments of the function `library`
+```{r}
+?library
+
+```
+
+#Chunk 2: Load Data
+  2.1) Load the "InsectSprays" dataset
+  
+```{r}
+?data
+
+```
+
+#Chunk 3: Data Exploring 
+  3.1) Explore the structure of the data you just loaded using the functions `head()`, `str()` and `summary ()`, close the third chunk 
+```{r}
+?str
+?head
+?tail
+?summary
+```
+
+#Chunk 4:My first Boxplot: ggplot2
+  4.1) build your first ggplot using the functions `ggplot` and `geom_boxplot` using the `InsectSprays` dataset
+  4.2) Decide and describe what variables go on the x-axis and what variables go on the y axis 
+  4.3) Using a comment # describe the plot you see. What do the different lines on the boxplot mean? 
+```{r}
+?ggplot 
+?geom_boxplot
+
+```
+
+#Chunk 5: Iris and violin plot 
+  5.1) In this chunk load the dataset `iris`
+  5.2) Create a violin plot for “Sepal.Length” where each species is colored differently, and the color fill is 50% transparent. 
+  5.3)	Change the y axis label from “Sepal.Length to “Sepal Length (mm)” 
+  5.4)	Close the chunk 
+
+```{r}
+?iris
+
+```
+
+### Knit and Submit 

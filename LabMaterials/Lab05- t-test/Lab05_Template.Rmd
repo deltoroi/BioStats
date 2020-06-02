@@ -1,0 +1,75 @@
+---
+title: "Lab 05- T-tests"
+author: "YOUR NAME HERE"
+date: "XX/XX/20XX"
+output: 
+  html_document:
+    toc: TRUE
+---
+# Chunk 1: Load libraries and datasets 
+  1.1) Load `tidyverse` and `car` libraries
+  1.2) read in two datasets "WormSperm.csv" and "BlackbirdTesto.csv"
+  1.3) What are the structures of each of these two datasets? 
+```{r, echo=FALSE}
+
+```
+
+# Chunk 2: Define Hypotheses and Plot the data! 
+  2.1) Using pipes, summarize the bird and sperm datasets so that you have a mean and standard error per group (treatment in birds and sex in sperm). 
+  2.2) Identify a null and alternative hypotheses testing for differences in means in each of these datasets 
+  2.3) Plot summarized data as a point plot with error bars representing the standard error 
+```{r, echo=FALSE}
+?summarize
+?geom_point()
+?geom_errorbar
+
+```
+
+# Chunk 3: Check statistical assumptions
+  3.1) Using a shapiro test, a density plot and a qq plot check the two datasets for normality
+    3.1b) If any dataset is not normally distributed attempt a transformation to normalize the data. Does the transformation improve the normality of the distribution? 
+  3.2) Using both a Levene Test and a Flinger-Kileen test, check if the datasets meet the assumption of homeogeneity of variances 
+  3.3) What about the assumption of independence, are all observations in each of the datasets independent of each other? 
+  
+```{r, echo=FALSE}
+?shapiro.test
+?car::leveneTest
+
+```
+
+# Chunk 4: Compelte an unpaired t-test 
+  4.1) Complete a t.test for both the transformed and untranfromed Antibody production predicted by Treatment in the bbirds dataset. Set the `var.equal=TRUE`
+  
+  4.2) Complete a t.test for both the transformed and untranfromed SpermSize predicted by Sex in the sperm dataset. Set the `var.equal=FALSE`
+  
+  4.3) Interpret the results in your own words. 
+```{r, echo=FALSE}
+?t.test
+
+```
+
+# Chunk 5: Complete a paired t-test and plot a paired point plot 
+  5.1) Complete a paired t test for the bbirds dataset. use `paired=TRUE`
+  
+  5.2) Interpret the results and discuss Why is this the appropriate test for these data? 
+  
+  5.3) Plot the data as paired point plot
+  
+
+```{r, echo=FALSE}
+?geom_point()
+?geom_line()
+
+```
+
+# Chunk 6: Non-parametric alternative 
+6.1) Complete a wilcoxon rank sums test of Antibody.log predicted by treatment with equal variances and paired data. Interpret the results in your own words. 
+
+6.2) Using the sperm data, complte a wilcoxon rank sums test of log.sperm size predicted by sex with unequal variances. Interpret the results in your own words. 
+```{r, echo=FALSE}
+?wilcox.test
+
+```
+
+
+
